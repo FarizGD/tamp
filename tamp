@@ -1,9 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/sh
 
-if [ ! -d /sdcard/htdocs ]
-then
-    mkdir /sdcard/htdocs
-fi
+DOCROOT="$HOME/storage/shared/htdocs"
+mkdir -p "$DOCROOT"
 
 ACMD="$1"
 
