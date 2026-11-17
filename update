@@ -1,4 +1,5 @@
 #!$PREFIX/bin/bash
+DOCROOT="$HOME/storage/shared/htdocs"
 BLUE='\033[0;34m'
 RED='\033[0;31m'
 YELLOW='\033[0;33m'
@@ -24,9 +25,9 @@ chmod +x tamp
 
 cp tamp $PREFIX/bin/
 
-cp -n .htaccess /sdcard/htdocs/
+cp -n .htaccess "$DOCROOT/"
 
-cp -n config.inc.php /sdcard/htdocs/phpmyadmin/config.inc.php
+cp -n config.inc.php "$DOCROOT/phpmyadmin/config.inc.php"
 
 echo "${RED}Done!${NC}"
 echo "${YELLOW}TAMP is up to date.${NC}"
