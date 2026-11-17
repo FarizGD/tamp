@@ -1,7 +1,7 @@
 # TAMP
 
 <picture>![GitHub repo size](https://img.shields.io/github/repo-size/sekedus/tamp?label=Size)</picture>
-[![GitHub License](https://img.shields.io/github/license/sekedus/tamp?label=License)](https://github.com/sekedus/tamp/blob/main/LICENSE)
+[![GitHub License](https://img.shields.io/github/license/sekedus/tamp?label=License)](https://github.com/FarizGD/tamp/blob/main/LICENSE)
 [![Badge DeepWiki]](https://deepwiki.com/sekedus/tamp)
 
 TAMP (Termux, Apache, MariaDB, PHP)
@@ -22,13 +22,15 @@ TAMP is a local http web server for Android using Termux, with installation pack
 ```bash
 pkg update && pkg upgrade
 ```
-3. Grant Termux storage permission: 
+3. Grant Termux storage permission (allow the permission prompt):
 ```bash
 termux-setup-storage
 ```
+
+   TAMP stores website files in `~/storage/shared/htdocs`, which is Termux's path to Android shared storage.
 4. Install `git` & clone this repo: 
 ```bash
-pkg install git -y && cd ~/ && git clone https://github.com/sekedus/tamp.git
+pkg install git -y && cd ~/ && git clone https://github.com/FarizGD/tamp.git
 ```
 5. Install TAMP: 
 ```bash
@@ -49,9 +51,7 @@ cd ~/tamp && bash setup && cd ~/
   * url: `http://localhost:8080/phpmyadmin`
   * username: `root`
   * password: {leave_it_blank}
-- **htdocs** folder can be found in:
-  * `~/storage/shared/htdocs`
-  * or `~/storage/shared/htdocs`
+- **Website/document root:** `~/storage/shared/htdocs`
 
 ㅤ
 ## Commands
@@ -73,7 +73,7 @@ cd ~/tamp && bash setup && cd ~/
 ㅤ
 ## License
 
-TAMP is licensed under the GNU General Public License v3.0. See the [LICENSE](https://github.com/sekedus/tamp/blob/main/LICENSE) file for more details.
+TAMP is licensed under the GNU General Public License v3.0. See the [LICENSE](https://github.com/FarizGD/tamp/blob/main/LICENSE) file for more details.
 
 
 <!-- Badges -->
