@@ -50,8 +50,8 @@ cd ~/tamp && bash setup && cd ~/
   * username: `root`
   * password: {leave_it_blank}
 - **htdocs** folder can be found in:
-  * `/sdcard/htdocs`
-  * or `/storage/emulated/0/htdocs`
+  * `~/storage/shared/htdocs`
+  * or `~/storage/shared/htdocs`
 
 ㅤ
 ## Commands
