@@ -7,6 +7,9 @@ fi
 
 sleep 5
 
+DOCROOT="$HOME/storage/shared/htdocs"
+mkdir -p "$DOCROOT"
+
 pkg install php-apache -y
 
 rm $PREFIX/etc/apache2/httpd.conf
@@ -33,29 +36,27 @@ cp tamp $PREFIX/bin/
 
 pkg install mariadb composer -y
 
-mkdir -p /sdcard/htdocs
+cp -n .htaccess "$DOCROOT/"
 
-cp -n .htaccess /sdcard/htdocs/
-
-php_info='/sdcard/htdocs/phpinfo'
+php_info="$DOCROOT/phpinfo"
 if [ ! -d $php_info ];
 then
   mkdir $php_info
   echo "<?php phpinfo(); ?>" > $php_info/index.php
 fi
 
-if [ ! -d /sdcard/htdocs/phpmyadmin ];
+if [ ! -d "$DOCROOT/phpmyadmin" ];
 then
-  cd /sdcard/htdocs && composer create-project phpmyadmin/phpmyadmin
+  cd "$DOCROOT" && composer create-project phpmyadmin/phpmyadmin
 fi
 
-cd ~/tamp && cp -f config.inc.php /sdcard/htdocs/phpmyadmin/config.inc.php
+cd ~/tamp && cp -f config.inc.php "$DOCROOT/phpmyadmin/config.inc.php"
 
 YELLOW='\033[0;33m'
 NC='\033[0m' # No Color
 echo "TAMP installed sucessfully."
-echo "/sdcard/htdocs - is your document directory."
-echo "Place your files in /sdcard/htdocs"
+echo "$DOCROOT - is your document directory."
+echo "Place your files in $DOCROOT"
 echo -e "Run: ${YELLOW}tamp start${NC}"
 
 #tamp-setup
